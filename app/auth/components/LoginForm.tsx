@@ -4,6 +4,7 @@ import { LabeledTextField } from "app/components/LabeledTextField"
 import { Form, FORM_ERROR } from "app/components/Form"
 import login from "app/auth/mutations/login"
 import { LoginInput } from "app/auth/validations"
+import { cc } from "app/lib/cc"
 
 type LoginFormProps = {
   onSuccess?: () => void
@@ -40,7 +41,7 @@ export const LoginForm = (props: LoginFormProps) => {
         <LabeledTextField name="password" label="Password" placeholder="Password" type="password" />
       </Form>
 
-      <div style={{ marginTop: "1rem" }}>
+      <div className={cc("mt-4")}>
         Or <Link href="/signup">Sign Up</Link>
       </div>
     </div>

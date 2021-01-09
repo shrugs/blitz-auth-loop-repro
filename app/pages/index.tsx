@@ -3,11 +3,7 @@ import Layout from "app/layouts/Layout"
 import logout from "app/auth/mutations/logout"
 import { useCurrentUser } from "app/hooks/useCurrentUser"
 import { Suspense } from "react"
-
-/*
- * This file is just for a pleasant getting started page for your new app.
- * You can delete everything in here and start from scratch if you like.
- */
+import { cc } from "app/lib/cc"
 
 const UserInfo = () => {
   const currentUser = useCurrentUser()
@@ -51,7 +47,7 @@ const UserInfo = () => {
 
 const Home: BlitzPage = () => {
   return (
-    <div className="container">
+    <div className={cc("container mx-auto")}>
       <main>
         <div className="logo">
           <img src="/logo.png" alt="blitz.js" />
@@ -59,7 +55,7 @@ const Home: BlitzPage = () => {
         <p>
           <strong>Congrats!</strong> Your app is ready, including user sign-up and log-in.
         </p>
-        <div className="buttons" style={{ marginTop: "1rem", marginBottom: "1rem" }}>
+        <div className={cc(["buttons", "my-4"])}>
           <Suspense fallback="Loading...">
             <UserInfo />
           </Suspense>
