@@ -2,9 +2,9 @@ import login from "app/auth/mutations/login";
 import { LoginInput } from "app/auth/validations";
 import { Form, FORM_ERROR } from "app/components/Form";
 import { LabeledTextField } from "app/components/LabeledTextField";
-import { cc } from "app/lib/cc";
 import { AuthenticationError, Link, useMutation } from "blitz";
 import React from "react";
+import { cc } from "utils/cc";
 
 type LoginFormProps = {
   onSuccess?: () => void;
