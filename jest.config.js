@@ -1,5 +1,5 @@
-const { pathsToModuleNameMapper } = require("ts-jest/utils")
-const { compilerOptions } = require("./tsconfig")
+const { pathsToModuleNameMapper } = require("ts-jest/utils");
+const { compilerOptions } = require("./tsconfig");
 
 module.exports = {
   // Test setup file
@@ -28,4 +28,4 @@ module.exports = {
   // Coverage output
   coverageDirectory: ".coverage",
   collectCoverageFrom: ["**/*.{js,jsx,ts,tsx}", "!**/*.d.ts", "!**/node_modules/**"],
-}
+};

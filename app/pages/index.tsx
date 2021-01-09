@@ -1,13 +1,13 @@
-import { Link, BlitzPage, useMutation } from "blitz"
-import Layout from "app/layouts/Layout"
-import logout from "app/auth/mutations/logout"
-import { useCurrentUser } from "app/hooks/useCurrentUser"
-import { Suspense } from "react"
-import { cc } from "app/lib/cc"
+import logout from "app/auth/mutations/logout";
+import { useCurrentUser } from "app/hooks/useCurrentUser";
+import Layout from "app/layouts/Layout";
+import { cc } from "app/lib/cc";
+import { BlitzPage, Link, useMutation } from "blitz";
+import { Suspense } from "react";
 
 const UserInfo = () => {
-  const currentUser = useCurrentUser()
-  const [logoutMutation] = useMutation(logout)
+  const currentUser = useCurrentUser();
+  const [logoutMutation] = useMutation(logout);
 
   if (currentUser) {
     return (
@@ -15,7 +15,7 @@ const UserInfo = () => {
         <button
           className="button small"
           onClick={async () => {
-            await logoutMutation()
+            await logoutMutation();
           }}
         >
           Logout
@@ -26,7 +26,7 @@ const UserInfo = () => {
           User role: <code>{currentUser.role}</code>
         </div>
       </>
-    )
+    );
   } else {
     return (
       <>
@@ -41,9 +41,9 @@ const UserInfo = () => {
           </a>
         </Link>
       </>
-    )
+    );
   }
-}
+};
 
 const Home: BlitzPage = () => {
   return (
@@ -260,9 +260,9 @@ const Home: BlitzPage = () => {
         }
       `}</style>
     </div>
-  )
-}
+  );
+};
 
-Home.getLayout = (page) => <Layout title="Home">{page}</Layout>
+Home.getLayout = (page) => <Layout title="Home">{page}</Layout>;
 
-export default Home
+export default Home;

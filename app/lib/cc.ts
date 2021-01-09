@@ -1,2 +1,2 @@
-import classcat from "classcat"
-export const cc = classcat
+import classcat from "classcat";
+export const cc = classcat;
