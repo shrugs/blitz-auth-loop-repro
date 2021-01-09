@@ -1,3 +1,4 @@
 # Prisma Migrate lockfile v1
 
 20210109185408-initial-migration
+20210109190341-switch-to-postgres
