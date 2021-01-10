@@ -1,8 +1,9 @@
+import { Box, Button, Text } from "@chakra-ui/react";
 import signup from "app/auth/mutations/signup";
 import { SignupInput } from "app/auth/validations";
+import { Field } from "app/components/Field";
 import { Form, FORM_ERROR } from "app/components/Form";
-import { LabeledTextField } from "app/components/LabeledTextField";
-import { useMutation } from "blitz";
+import { Link, useMutation } from "blitz";
 import React from "react";
 
 type SignupFormProps = {
@@ -13,11 +14,11 @@ export const SignupForm = (props: SignupFormProps) => {
   const [signupMutation] = useMutation(signup);
 
   return (
-    <div>
-      <h1>Create an Account</h1>
+    <Box w="full">
+      <Text fontSize="h1">Create an Account</Text>
 
       <Form
-        submitText="Create Account"
+        submit="Create Account"
         schema={SignupInput}
         initialValues={{ email: "", password: "" }}
         onSubmit={async (values) => {
@@ -33,11 +34,16 @@ export const SignupForm = (props: SignupFormProps) => {
             }
           }
         }}
+        actions={
+          <Link href="/login" passHref>
+            <Button variant="link">or log in</Button>
+          </Link>
+        }
       >
-        <LabeledTextField name="email" label="Email" placeholder="Email" />
-        <LabeledTextField name="password" label="Password" placeholder="Password" type="password" />
+        <Field name="email" type="email" label="Email" placeholder="Email" />
+        <Field name="password" type="password" label="Password" placeholder="Password" />
       </Form>
-    </div>
+    </Box>
   );
 };
 

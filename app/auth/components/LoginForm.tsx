@@ -1,7 +1,8 @@
+import { Box, Button, Text } from "@chakra-ui/react";
 import login from "app/auth/mutations/login";
 import { LoginInput } from "app/auth/validations";
+import { Field } from "app/components/Field";
 import { Form, FORM_ERROR } from "app/components/Form";
-import { LabeledTextField } from "app/components/LabeledTextField";
 import { AuthenticationError, Link, useMutation } from "blitz";
 import React from "react";
 
@@ -13,11 +14,11 @@ export const LoginForm = (props: LoginFormProps) => {
   const [loginMutation] = useMutation(login);
 
   return (
-    <div>
-      <h1>Login</h1>
+    <Box w="full">
+      <Text fontSize="h1">Login</Text>
 
       <Form
-        submitText="Login"
+        submit="Login"
         schema={LoginInput}
         initialValues={{ email: "", password: "" }}
         onSubmit={async (values) => {
@@ -35,15 +36,16 @@ export const LoginForm = (props: LoginFormProps) => {
             }
           }
         }}
+        actions={
+          <Link href="/signup" passHref>
+            <Button variant="link">or sign up</Button>
+          </Link>
+        }
       >
-        <LabeledTextField name="email" label="Email" placeholder="Email" />
-        <LabeledTextField name="password" label="Password" placeholder="Password" type="password" />
+        <Field name="email" type="email" label="Email" placeholder="Email" />
+        <Field name="password" type="password" label="Password" placeholder="Password" />
       </Form>
-
-      <div style={{ marginTop: "1rem" }}>
-        Or <Link href="/signup">Sign Up</Link>
-      </div>
-    </div>
+    </Box>
   );
 };
 
