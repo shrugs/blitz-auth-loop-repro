@@ -1,4 +1,3 @@
-import "app/styles/index.css";
 import LoginForm from "app/auth/components/LoginForm";
 import {
   AppProps,

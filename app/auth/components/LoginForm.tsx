@@ -41,7 +41,7 @@ export const LoginForm = (props: LoginFormProps) => {
         <LabeledTextField name="password" label="Password" placeholder="Password" type="password" />
       </Form>
 
-      <div className={cc("mt-4")}>
+      <div style={{ marginTop: "1rem" }}>
         Or <Link href="/signup">Sign Up</Link>
       </div>
     </div>

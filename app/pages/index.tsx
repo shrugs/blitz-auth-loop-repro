@@ -3,7 +3,6 @@ import { useCurrentUser } from "app/hooks/useCurrentUser";
 import Layout from "app/layouts/Layout";
 import { BlitzPage, Link, useMutation } from "blitz";
 import { Suspense } from "react";
-import { cc } from "utils/cc";
 
 const UserInfo = () => {
   const currentUser = useCurrentUser();
@@ -45,9 +44,9 @@ const UserInfo = () => {
   }
 };
 
-const Home: BlitzPage = () => {
+const Home: BlitzPage<any> = ({ user }) => {
   return (
-    <div className={cc("container mx-auto")}>
+    <div>
       <main>
         <div className="logo">
           <img src="/logo.png" alt="blitz.js" />
@@ -55,7 +54,7 @@ const Home: BlitzPage = () => {
         <p>
           <strong>Congrats!</strong> Your app is ready, including user sign-up and log-in.
         </p>
-        <div className={cc(["buttons", "my-4"])}>
+        <div>
           <Suspense fallback="Loading...">
             <UserInfo />
           </Suspense>
