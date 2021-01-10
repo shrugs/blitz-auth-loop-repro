@@ -12,6 +12,7 @@ class MyDocument extends Document {
       <Html lang="en">
         <DocumentHead />
         <body>
+          {/* TODO: dark mode, https://chakra-ui.com/docs/features/color-mode */}
           <Main />
           <BlitzScript />
         </body>

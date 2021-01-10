@@ -1,3 +1,4 @@
+import { Button, ButtonGroup } from "@chakra-ui/react";
 import logout from "app/auth/mutations/logout";
 import { useCurrentUser } from "app/hooks/useCurrentUser";
 import Layout from "app/layouts/Layout";
@@ -11,14 +12,13 @@ const UserInfo = () => {
   if (currentUser) {
     return (
       <>
-        <button
-          className="button small"
+        <Button
           onClick={async () => {
             await logoutMutation();
           }}
         >
           Logout
-        </button>
+        </Button>
         <div>
           User id: <code>{currentUser.id}</code>
           <br />
@@ -88,32 +88,27 @@ const Home: BlitzPage<any> = ({ user }) => {
             </Link>
           </p>
         </div>
-        <div className="buttons" style={{ marginTop: "5rem" }}>
-          <a
-            className="button"
+        <ButtonGroup mt={5}>
+          <Button
+            as="a"
             href="https://blitzjs.com/docs/getting-started?utm_source=blitz-new&utm_medium=app-template&utm_campaign=blitz-new"
             target="_blank"
             rel="noopener noreferrer"
           >
             Documentation
-          </a>
-          <a
-            className="button-outline"
+          </Button>
+          <Button
+            as="a"
             href="https://github.com/blitz-js/blitz"
             target="_blank"
             rel="noopener noreferrer"
           >
             Github Repo
-          </a>
-          <a
-            className="button-outline"
-            href="https://slack.blitzjs.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          </Button>
+          <Button as="a" href="https://slack.blitzjs.com" target="_blank" rel="noopener noreferrer">
             Slack Community
-          </a>
-        </div>
+          </Button>
+        </ButtonGroup>
       </main>
 
       <footer>
